@@ -1,0 +1,354 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Poppins', sans-serif;
+  --default-font-family: 'Poppins', sans-serif;
+}
+
+/* ==========================================================================
+   CURVE AGENCY OFFICIAL TYPOGRAPHY SYSTEM
+   Mapped directly from C:\Users\Orange\Desktop\CURVE AGENCY\FONTS
+   - Arabic: RB Family (Riyad Bank Regular & Bold)
+   - English: Poppins Family (Light, Regular, Medium, SemiBold, Bold, ExtraBold, Black)
+   ========================================================================== */
+
+/* Arabic: RB Regular (4.ttf) */
+@font-face {
+  font-family: 'RB';
+  src: url('/assets/fonts/RB-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Arabic: RB Bold */
+@font-face {
+  font-family: 'RB';
+  src: url('/assets/fonts/RB-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Alias for RiyadBank */
+@font-face {
+  font-family: 'RiyadBank';
+  src: url('/assets/fonts/RB-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RiyadBank';
+  src: url('/assets/fonts/RB-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* English: Poppins Local Fonts */
+@font-face {
+  font-family: 'Poppins';
+  src: url('/assets/fonts/Poppins-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/assets/fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/assets/fonts/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/assets/fonts/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/assets/fonts/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/assets/fonts/Poppins-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/assets/fonts/Poppins-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --bg-primary: #EFEFEF;
+    --bg-surface: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --text-primary: #111111;
+    --text-secondary: #727272;
+    --text-muted: #8E8E8E;
+    --accent: #000000;
+    --border-subtle: rgba(0, 0, 0, 0.08);
+    --border-strong: rgba(0, 0, 0, 0.18);
+  }
+
+  html, body {
+    font-family: 'Poppins', sans-serif;
+    color-scheme: light;
+    background-color: #EFEFEF;
+    color: #111111;
+  }
+
+  html[dir="rtl"], [dir="rtl"] body {
+    font-family: 'RB', 'RiyadBank', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, select, span {
+    font-family: inherit;
+  }
+
+  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6, 
+  [dir="rtl"] p, [dir="rtl"] a, [dir="rtl"] button, [dir="rtl"] span, [dir="rtl"] div {
+    font-family: 'RB', 'RiyadBank', sans-serif;
+  }
+
+  .font-mono, [dir="rtl"] .font-mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  }
+
+  /* Custom subtle scrollbar for light theme */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #EFEFEF;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #CCCCCC;
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #999999;
+  }
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-rtl {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+/* Hover pause now lives in JS (useMarqueeKinetics) so scroll velocity and
+   drag-to-scrub share one playback-rate channel instead of fighting the CSS. */
+.animate-marquee {
+  cursor: grab;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.animate-marquee[data-dragging='true'] {
+  cursor: grabbing;
+}
+
+[dir="rtl"] .animate-marquee {
+  animation-name: marquee-rtl;
+}
+
+/* Pulse glow effect */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(1.05); }
+}
+
+.animate-glow {
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+/* Glass panels for light theme */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: #FFFFFF;
+  border-color: rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.07);
+}
+
+/* ==========================================================================
+   MOTION LAYER — scroll reveals, kinetic marquee, intro curtain,
+   reading progress, shared-element transitions.
+   Every effect below is opt-out: `prefers-reduced-motion: reduce` disables all.
+   ========================================================================== */
+
+/* --- Scroll reveal -------------------------------------------------------
+   CSS is only allowed to HIDE the block (opacity, and nothing else). The
+   entrance itself runs on the Web Animations API inside Reveal.jsx.
+   Never declare a transition here: unlayered rules outrank Tailwind's own
+   `transition-all` on the same nodes, which silently replaced a card's real
+   hover transition (shadow/border) and glued the stagger delay onto every
+   hover — the hover then felt like a jump instead of a smooth lift. */
+.rv-hidden {
+  opacity: 0;
+}
+
+.rv-hidden > * {
+  opacity: 0;
+}
+
+/* --- Reading progress rail ---------------------------------------------- */
+.reading-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.reading-bar-fill {
+  height: 100%;
+  background: #ffffff;
+  transform-origin: left center;
+  transition: width 0.12s linear;
+}
+
+[dir='rtl'] .reading-bar-fill {
+  transform-origin: right center;
+}
+
+/* --- Intro curtain (once per session) ----------------------------------- */
+.intro-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+}
+
+.intro-curtain-lift {
+  animation: introLift 0.52s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.intro-mark {
+  width: 168px;
+  height: auto;
+  opacity: 0;
+  animation: introMark 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.06s forwards;
+}
+
+.intro-line {
+  position: absolute;
+  bottom: 16%;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  transform: translateX(-50%);
+  animation: introLine 0.52s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+}
+
+@keyframes introMark {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes introLine {
+  from { width: 0; }
+  to { width: min(38vw, 320px); }
+}
+
+@keyframes introLift {
+  to {
+    opacity: 0;
+    transform: translateY(-14px);
+    visibility: hidden;
+  }
+}
+
+/* --- Shared-element card → case study transition ------------------------ */
+::view-transition-group(project-hero),
+::view-transition-old(project-hero),
+::view-transition-new(project-hero) {
+  animation-duration: 0.52s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+::view-transition-old(project-hero) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* --- Reduced motion: everything off ------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .rv-hidden,
+  .rv-hidden > * {
+    opacity: 1 !important;
+  }
+
+  .animate-marquee {
+    animation: none !important;
+  }
+
+  .intro-curtain {
+    display: none !important;
+  }
+
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
