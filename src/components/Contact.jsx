@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, MessageSquare, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import Reveal from './Reveal';
 
+import { asset } from '../lib/asset';
 export default function Contact({ t, lang }) {
   const [formData, setFormData] = useState({
     name: '',
@@ -235,7 +236,7 @@ export default function Contact({ t, lang }) {
         <div className="pt-10 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <img
-              src="/assets/svg/curve_logo_black.svg"
+              src={asset("/assets/svg/curve_logo_black.svg")}
               alt="Curve Agency"
               className="h-6 w-auto object-contain"
             />

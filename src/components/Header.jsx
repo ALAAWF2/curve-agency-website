@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import SectionIndex, { ReadingBar } from './ReadingProgress';
 
+import { asset } from '../lib/asset';
 export default function Header({ lang, setLang, t }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -36,7 +37,7 @@ export default function Header({ lang, setLang, t }) {
         <a href="#" className="flex items-center group">
           <div className="relative">
             <img 
-              src="/assets/svg/curve_logo_white.svg" 
+              src={asset("/assets/svg/curve_logo_white.svg")} 
               alt="Curve Agency" 
               className="h-8 sm:h-9 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
             />

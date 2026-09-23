@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { Grid, Maximize2, Sparkles, Layers } from 'lucide-react';
 
+import { asset } from '../lib/asset';
 export default function BrandSystemShowcase({ t, lang }) {
   const [activeElement, setActiveElement] = useState(1);
 
   const patterns = [
-    { id: 1, name: "Wave Curve Arc", file: "/assets/svg/PATTERN & ELEMENTS-0١.svg" },
-    { id: 2, name: "Inverted Tangent", file: "/assets/svg/PATTERN & ELEMENTS-0٢.svg" },
-    { id: 3, name: "Geometric Block", file: "/assets/svg/PATTERN & ELEMENTS-0٣.svg" },
-    { id: 4, name: "Structural Grid", file: "/assets/svg/PATTERN & ELEMENTS-0٤.svg" },
-    { id: 5, name: "Circular Quadrant", file: "/assets/svg/PATTERN & ELEMENTS-0٥.svg" },
-    { id: 6, name: "Dynamic Petal", file: "/assets/svg/PATTERN & ELEMENTS-0٦.svg" },
+    { id: 1, name: "Wave Curve Arc", file: asset("/assets/svg/PATTERN & ELEMENTS-0١.svg") },
+    { id: 2, name: "Inverted Tangent", file: asset("/assets/svg/PATTERN & ELEMENTS-0٢.svg") },
+    { id: 3, name: "Geometric Block", file: asset("/assets/svg/PATTERN & ELEMENTS-0٣.svg") },
+    { id: 4, name: "Structural Grid", file: asset("/assets/svg/PATTERN & ELEMENTS-0٤.svg") },
+    { id: 5, name: "Circular Quadrant", file: asset("/assets/svg/PATTERN & ELEMENTS-0٥.svg") },
+    { id: 6, name: "Dynamic Petal", file: asset("/assets/svg/PATTERN & ELEMENTS-0٦.svg") },
   ];
 
   return (
@@ -52,7 +53,7 @@ export default function BrandSystemShowcase({ t, lang }) {
               {/* Centered Large SVG Icon Mark */}
               <div className="py-12 flex items-center justify-center">
                 <img
-                  src="/assets/svg/curve_icon_black.svg"
+                  src={asset("/assets/svg/curve_icon_black.svg")}
                   alt="Curve Icon Mark"
                   className="w-48 sm:w-64 h-auto object-contain opacity-90 transition-transform duration-700 group-hover:scale-105"
                 />
@@ -72,7 +73,7 @@ export default function BrandSystemShowcase({ t, lang }) {
           {/* Side Showcase: Brand Billboard Mockup ("We move DIFFERENTLY") */}
           <div className="lg:col-span-5 rounded-3xl overflow-hidden bg-white border border-black/10 shadow-sm relative group">
             <img
-              src="/assets/images/page_24.png"
+              src={asset("/assets/images/page_24.png")}
               alt="Curve Agency Billboard — We move DIFFERENTLY"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />

@@ -1,4 +1,6 @@
-export const projectsData = [
+import { asset } from '../lib/asset';
+
+const rawProjects = [
   {
     id: "squid-game-2",
     title: {
@@ -365,7 +367,7 @@ export const projectsData = [
   }
 ];
 
-export const partnerLogos = [
+const rawPartners = [
   { name: "وزارة الرياضة (Ministry of Sport)", enName: "Ministry of Sport", tier: "Government", logo: "/assets/clients/ministry-of-sport.png" },
   { name: "برنامج خدمة ضيوف الرحمن", enName: "Pilgrim Experience Program", tier: "Vision 2030", logo: "/assets/clients/guests-of-rahman.png" },
   { name: "NETFLIX", enName: "Netflix", tier: "Global Entertainment", logo: "/assets/clients/netflix.png" },
@@ -387,3 +389,15 @@ export const partnerLogos = [
   { name: "ONN", enName: "ONN Coffee", tier: "Urban Lifestyle", logo: "/assets/clients/onn.png" },
   { name: "BURJAH", enName: "Burjah", tier: "Enterprise", logo: "/assets/clients/burjah.png" }
 ];
+
+// Resolve every image / gallery / logo path against the build's base URL.
+export const projectsData = rawProjects.map((p) => ({
+  ...p,
+  image: p.image ? asset(p.image) : p.image,
+  gallery: p.gallery ? p.gallery.map(asset) : p.gallery,
+}));
+
+export const partnerLogos = rawPartners.map((p) => ({
+  ...p,
+  logo: p.logo ? asset(p.logo) : p.logo,
+}));

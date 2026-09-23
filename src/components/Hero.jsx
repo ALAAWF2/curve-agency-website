@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowDown, ArrowUpRight, Sparkles } from 'lucide-react';
 import Reveal from './Reveal';
 
+import { asset } from '../lib/asset';
 export default function Hero({ t, lang }) {
   return (
     <section id="about" className="relative pt-28 sm:pt-32 pb-16 px-6 sm:px-8 max-w-7xl mx-auto bg-[#EFEFEF]">
@@ -10,7 +11,7 @@ export default function Hero({ t, lang }) {
         <div className="relative aspect-[16/8.2] sm:aspect-[16/7.5] w-full flex items-center justify-center overflow-hidden">
           {/* Render the official panner-01.svg banner */}
           <img
-            src="/assets/svg/hero_banner_in_motion.svg"
+            src={asset("/assets/svg/hero_banner_in_motion.svg")}
             alt="Curve Agency — IN MOTION"
             className="w-full h-full object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-[1.02]"
           />

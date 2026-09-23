@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { introShouldPlay, markIntroSeen, setIntroActive } from '../lib/intro';
 
+import { asset } from '../lib/asset';
 /**
  * Black curtain with the CURVE mark, played once per browser session.
  * Total run ~1s: 520ms hold, 520ms lift.
@@ -46,7 +47,7 @@ export default function IntroCurtain() {
       className={`intro-curtain${phase === 'lift' ? ' intro-curtain-lift' : ''}`}
       aria-hidden="true"
     >
-      <img src="/assets/svg/curve_logo_white.svg" alt="" className="intro-mark" />
+      <img src={asset("/assets/svg/curve_logo_white.svg")} alt="" className="intro-mark" />
       <span className="intro-line" />
     </div>
   );
