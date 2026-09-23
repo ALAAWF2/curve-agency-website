@@ -35,3 +35,6 @@ _backups/
 *.njsproj
 *.sln
 *.sw?
+
+# GitHub Pages build output (published to the gh-pages branch)
+dist-pages
